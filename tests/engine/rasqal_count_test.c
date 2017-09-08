@@ -174,11 +174,6 @@ main(int argc, char **argv) {
       int offset=tests[i].data_graphs[j];
       if(offset >= 0) {
         rasqal_data_graph* dg;
-//         dg = rasqal_new_data_graph_from_uri(world,
-//                                             /* source URI */ graph_uris[offset],
-//                                             /* name URI */ graph_uris[offset],
-//                                             RASQAL_DATA_GRAPH_NAMED,
-//                                             NULL, NULL, NULL);
         dg = rasqal_new_data_graph_from_uri(world,
                                             /* source URI */ graph_uris[offset],
                                             /* name URI */ NULL,
