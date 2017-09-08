@@ -83,7 +83,7 @@ WHERE\
 ",
     /* expected_count */  1,
     /* data_graphs */ { 0, 1, 2 },
-    /* value_answers */ { "3" },
+    /* value_answers */ { "9" },
     /* graph_answers */ { 0, 0 },
     /* value_var */ "value",
   }
@@ -174,10 +174,15 @@ main(int argc, char **argv) {
       int offset=tests[i].data_graphs[j];
       if(offset >= 0) {
         rasqal_data_graph* dg;
+//         dg = rasqal_new_data_graph_from_uri(world,
+//                                             /* source URI */ graph_uris[offset],
+//                                             /* name URI */ graph_uris[offset],
+//                                             RASQAL_DATA_GRAPH_NAMED,
+//                                             NULL, NULL, NULL);
         dg = rasqal_new_data_graph_from_uri(world,
                                             /* source URI */ graph_uris[offset],
-                                            /* name URI */ graph_uris[offset],
-                                            RASQAL_DATA_GRAPH_NAMED,
+                                            /* name URI */ NULL,
+                                            RASQAL_DATA_GRAPH_BACKGROUND,
                                             NULL, NULL, NULL);
         rasqal_query_add_data_graph(query, dg);
       }
